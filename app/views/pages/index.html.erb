@@ -1,0 +1,15 @@
+<h1>To-Do List</h1>
+<div ng-app="app">
+	<!-- {{ 1 + 1 }} -->
+	<div ng-controller="stuffCtrl">
+	 <p>Search for a task here: <input ng-model="searchText"></p>
+		<ul>
+			<div ng-repeat="task in tasks | filter: {text: searchText}">
+				<li ng-class="{strike: task.completed}" ng-click="toggleCompleted(task)">{{task.text}}</li>
+				<!-- <li ng-click="hideMe($index)">{{task.text}}</li> -->
+			</div>
+		</ul>
+		<p><input id="input" ng-model="veryNewTask"></p>
+		<button ng-click="addTask(veryNewTask)">Add New Task</button>
+	</div>
+</div>
